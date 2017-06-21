@@ -1,0 +1,246 @@
+
+#topRw span
+{
+	color:#008A52;
+}
+.rtTxt
+{
+	color:#008A52;
+}
+.brkRw
+{
+	background-color:#008A52;
+
+.txtBx
+{
+	border:2px solid #008A52;
+	color:#008A52;
+}
+.bxHd
+{
+	background-color:#008A52;
+	border:2px solid #008A52;
+}
+.bxMd
+{
+	border:2px solid #008A52;
+}
+.scrlHldr
+{
+	border-left:2px solid #008A52;
+}
+.scrlBr
+{
+	background-color:#008A52;
+}
+.content
+{
+	color:#008A52;
+}
+.bxBtm
+{
+	border:2px solid #008A52;
+}
+.mnBtn
+{
+	border:2px solid #008A52;
+	color:#008A52;
+}
+.mnBtn:hover
+{
+	background-color:#008A52;
+}
+.lnkTxt
+{
+	color:#008A52;
+}
+.bordLR
+{
+	border-left:2px solid #008A52;
+	border-right:2px solid #008A52;
+}
+.bordLRB
+{
+	border-left:2px solid #008A52;
+	border-right:2px solid #008A52;
+	border-bottom:2px solid #008A52;
+}
+.bordTLRB
+{
+	border:2px solid #008A52;
+}
+a:active
+{
+	color:#008A52;
+}
+a:visited
+{
+	color:#008A52;
+}
+a:link
+{
+	color:#008A52;
+}
+a:hover
+{
+	color:#008A52;
+}
+
+#menuBtn
+{
+	border-color: #008A52;
+}
+.menuBar
+{
+	background-color:#008A52;
+}
+.userHdr
+{
+	border-bottom:2px solid #008A52;
+}
+.userHldr:hover
+{
+	background-color:#008A52;
+	color:#FFF;
+}
+.dropDowns
+{
+	border-color:#008A52;
+	color:#008A52;
+}
+
+#chooseConfMd
+{
+	color:#008A52;
+}
+#vhclsTbl
+{
+	color:#008A52;
+}
+#vhclsTbl td
+{
+	border-bottom:2px solid #008A52;
+}
+.vin
+{
+	border-right:2px solid #008A52;
+}
+.chkBx
+{
+	border:2px solid #008A52;
+}
+.radBtn
+{
+	border:2px solid #008A52;
+}
+#selVhclsTbl
+{
+	color:#008A52;
+}
+#selVhclsTbl td
+{
+	border-bottom:2px solid #008A52;
+}
+
+
+#recsTbl
+{
+	color:#008A52;
+}
+#recsTbl td
+{
+	border-bottom:2px solid #008A52;
+}
+#okTransaction
+{
+	border:2px solid #008A52;
+}
+#okTransaction:hover
+{
+	background-color:#008A52;
+	color:#FFF;
+}
+
+/*new styles: begin*/
+#topRw {
+	background-color: #571c75;
+}
+
+#infoSection {
+	height: 43px;
+	font-family: 'Source Sans Pro', sans-serif;
+	color: #cccccc;
+	font-size: 18px;
+	background-color: #233244;
+}
+
+.navbar {
+	background-color: #0068a0;
+	border: 1px solid rgb(69, 69, 69);
+	box-shadow: 2px 0 6px 0 rgba(0, 0, 0, 0.2);
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 14px;
+	color: #afcde3;
+}
+
+.navbar .active {
+	color: #ffffff;
+	background-color: #4a93bb;
+}
+
+/* main view area */
+.content {
+	background-color: #63676d;
+}
+
+/* connects nodes in the timeline */
+.tlConnector {
+	height: 4px;
+	width: 79px;
+	background-color: #c8cace;
+}
+/* contains data for one point on the timeline */
+.tlDetails {
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 14px;
+	color: #cccccc;
+	line-height: 16.8px;
+}
+
+.tlWaypoint {
+	background-color: rgb(107, 143, 184);
+	position: absolute;
+	left: 281px;
+	top: 270px;
+	width: 93px;
+	height: 43px;
+	border-radius: 16px;
+	font-size: 18px;
+	color: #233244;
+}
+
+.primary-button {
+	border-width: 1px;
+	border-color: rgb(67, 134, 170);
+	border-style: solid;
+	border-radius: 4px;
+	background-color: rgb(0, 104, 160);
+	height: 34px;
+	font-size: 14px;
+	color: #c9cbd0;
+}
+
+.titleHead {
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 24px;
+	color: #ffffff;
+}
+
+.titleBar {
+		background-color: #233244;
+		height: 43px;
+		font-family: 'Source Sans Pro', sans-serif;
+		font-size: 16px;
+		color: #bccade;
+}
+/*new styles: end*/

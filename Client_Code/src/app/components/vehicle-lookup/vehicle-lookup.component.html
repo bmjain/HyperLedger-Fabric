@@ -1,0 +1,61 @@
+<div class="container-fluid lookupBase">
+<div *ngIf="isList" class="search-view">
+  <div class="row toolbar">
+    <div class="col-md-4">
+      <input type="text"
+             class="form-control searchText"
+             id="searchField"
+             name="searchField"
+             placeholder="Search VIN, Make, Model"
+             [(ngModel)]="searchTerm">
+      <button (click)="getVehicles()" class="btn btn-primary">Search</button>
+    </div>
+    <div class="col-md-4">
+      <label>Show</label><select>
+        <option>All</option>
+        <option>Subaru</option>
+        <option>Chevrolet</option>
+        <option>Mazda</option>
+      </select>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+	<div class="row table-base">
+		<div class="col-md-12">
+			<div class="table-responsive">
+				<table class="table" data-toggle="table">
+					<thead>
+						<tr>
+							<th data-field="vin" data-sortable="true">VIN</th>
+							<th>MAKE</th>
+							<th>MODEL</th>
+							<th>YEAR</th>
+							<th>TRANSACTION TYPE</th>
+							<th>TRANSACTION DATE</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr *ngFor="let vehicle of vehicles" (click)="showDetails(vehicle)">
+							<td>{{ vehicle.VIN }}</td>
+							<td>{{ vehicle.make }}</td>
+							<td>{{ vehicle.model }}</td>
+							<td>{{ vehicle.year }}</td>
+							<td>{{vehicle.vehiclepurchasedfrom}} <i class="fa fa-arrow-right" aria-hidden="true"></i> Private</td>
+							<td>{{ vehicle.vehiclepurchasedate }}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<div *ngIf="isDetails">
+  <app-vehicle-detail [details]="vehicleDetails"
+                      (transferReqEmitter)="initTransfer(details)"></app-vehicle-detail>
+</div>
+
+<div *ngIf="isTransfer">
+  <app-vehicle-transfer [vehicleDetails]="vehicleDetails"></app-vehicle-transfer>
+</div>
+
+</div>

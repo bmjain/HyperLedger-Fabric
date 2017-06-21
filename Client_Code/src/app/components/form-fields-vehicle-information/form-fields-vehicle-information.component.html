@@ -1,0 +1,51 @@
+
+<div class="form-group">
+  <label for="VIN">Vehicle Identification Number (VIN)</label>
+  <input type="text"
+         class="form-control"
+         name="VIN"
+         [(ngModel)]="vehicle.VIN"
+         required />
+
+  <label for="make">Make</label>
+  <input type="text" class="form-control" id="make" required>
+
+  <label for="yearModel">Year Model</label>
+  <input type="text" class="form-control" id="yearModel" required>
+
+  <label for="fuel">Fuel Type</label>
+  <select id="fuel" class="form-control" required>
+    <option>Gas</option>
+    <option>Propane</option>
+    <option>Diesel</option>
+    <option>Electric</option>
+  </select>
+
+  <label for="model">Model or Series</label>
+  <input type="text" class="form-control" id="model">
+
+  <label for="bodyTypeModel">Body Type Model</label>
+  <select id="bodyTypeModel" class="form-control">
+    <option>AT - All Terrain</option>
+    <option>OTH - Other</option>
+  </select>
+
+</div>
+
+<div class="form-group">
+  <label for="license">California License Number</label>
+  <input type="text" class="form-control" id="license" required/>
+
+  <label for="typeVehicle">Type of Vehicle</label>
+  <select id="typeVehicle" class="form-control">
+    <option>Automobile</option>
+    <option>Commercial</option>
+    <option>Motorcycle</option>
+    <option>Boat</option>
+    <option>Trailer</option>
+  </select>
+
+  <label for="motorcyleEngineNumber">Motorcycle Engine Number</label>
+  <input type="text" class="form-control" id="motorcyleEngineNumber"/>
+
+</div>

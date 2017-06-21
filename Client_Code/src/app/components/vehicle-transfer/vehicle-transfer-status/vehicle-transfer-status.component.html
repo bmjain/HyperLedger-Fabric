@@ -1,0 +1,12 @@
+<div class="transfer-status">
+<!-- <p-galleria [images]="images"
+            panelWidth="500"
+            panelHeight="313"
+            [showCaption]="true"></p-galleria> -->
+            <div *ngIf="shouldShow()">
+  <img src="assets/images/transfer-title.gif"/>
+            </div>
+            <div *ngIf="!shouldShow()">
+              Transfer completed
+            </div>
+</div>
