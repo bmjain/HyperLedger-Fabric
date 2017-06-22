@@ -375,12 +375,12 @@ func (t *SimpleChaincode) get_specific_vehicle_details(stub shim.ChaincodeStubIn
 
 																if err != nil { return nil, errors.New("GET_VEHICLE_DETAILS: Invalid vehicle object") }
 
-	if 	v.OwnerType == args[0]	{
+//	if 	v.OwnerType == args[0]	{
 
 					return bytes, nil
-	} else {
-																return nil, errors.New("Permission Denied. get_vehicle_details")
-	}
+//	} else {
+//																return nil, errors.New("Permission Denied. get_vehicle_details")
+//	}
 
 }
 
