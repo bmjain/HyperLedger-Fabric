@@ -28,27 +28,28 @@ type  SimpleChaincode struct {
 //==============================================================================================================================
 
 type  Manufacturer struct {
-	Name string `json:"name"`
-	Address string `json:"address"`
-	State  string `json:"state"`
-	City  string `json:"city"`
-	ZipCode  string `json:"zipcode"`
+	Name 				string `json:"name"`
+	Address 			string `json:"address"`
+	State  				string `json:"state"`
+	City  				string `json:"city"`
+	ZipCode  			string `json:"zipcode"`
 }
 
 type  Dealer struct {
-	Name string `json:"name"`
-	Address string `json:"address"`
-	State  string `json:"state"`
-	City  string `json:"city"`
-	ZipCode  string `json:"zipcode"`
+	Name 				string `json:"name"`
+	Address 			string `json:"address"`
+	State  				string `json:"state"`
+	City  				string `json:"city"`
+	ZipCode  			string `json:"zipcode"`
 }
 
 type  VehicleOwner struct {
-	Name string `json:"name"`
-	Address string `json:"address"`
-	State  string `json:"state"`
-	City  string `json:"city"`
-	ZipCode  string `json:"zipcode"`
+	Name 				string `json:"name"`
+	Address 			string `json:"address"`
+	State  				string `json:"state"`
+	City  				string `json:"city"`
+	ZipCode  			string `json:"zipcode"`
+	StateLicenseNumber 	string  	 `json:"statelicensenumber"`
 }
 
 type Vehicle struct {
@@ -60,7 +61,6 @@ type Vehicle struct {
 	Year            				string  	    `json:"year"`
 	FuelType						string  	    `json:"fueltype"`
 	BodyType  						string 		    `json:"bodytype"`
-	StateLicenseNumber 				string  	    `json:"statelicensenumber"`
 	VehicleType						string 		    `json:"vehicletype"`
 	MotorCycleEngineNumber			string  	    `json:"motorcycleenginenumber"`
 	Manufacturer_Details			Manufacturer    `json:"manufacturer_details"`
@@ -71,7 +71,6 @@ type Vehicle struct {
 	SellingPrice 					int             `json:"sellingprice"`
 	Status          				int             `json:"status"`
 	V5cID           				string          `json:"v5cid"`
-	RegistrationNumber				string          `json:"reg_no"`
 	Reg_Complete_Status				bool            `json:"reg_complete_status"`
 }
 
