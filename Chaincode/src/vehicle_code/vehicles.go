@@ -3,8 +3,8 @@ package main
 import (
 	"errors"
 	"fmt"
-	"strconv"
-	"strings"
+//	"strconv"
+//	"strings"
 	"github.com/hyperledger/fabric/core/chaincode/shim"
 	"encoding/json"
 //	"regexp"
@@ -203,6 +203,7 @@ func (t *SimpleChaincode) Invoke(stub shim.ChaincodeStubInterface, function stri
 	} else if function == "Transfer_vehicle_Ownership" {
         return t.Transfer_vehicle_Ownership(stub, args[0])
 	}
+	return nil, errors.New("Received unknown function invocation " + function)
 }
 //=================================================================================================================================
 //	Query - Called on chaincode query. Takes a function name passed and calls that function. Passes the
@@ -259,11 +260,6 @@ func (t *SimpleChaincode) create_vehicle(stub shim.ChaincodeStubInterface,  vehi
 
 																		if record != nil { return nil, errors.New("Vehicle already exists") }
 
-	if 	caller_affiliation != AUTHORITY {							// Only the regulator can create a new v5c
-
-		return nil, errors.New(fmt.Sprintf("Permission Denied. create_vehicle. %v === %v", caller_affiliation, AUTHORITY))
-
-	}
 
 	_, err  = t.save_changes(stub, v)
 
@@ -296,7 +292,8 @@ func (t *SimpleChaincode) create_vehicle(stub shim.ChaincodeStubInterface,  vehi
 }
 
 func (t *SimpleChaincode) Update_vehicle_details(stub shim.ChaincodeStubInterface,  vehiclebody string) ([]byte, error) {
-	var vold Vehicle
+	
+	/*var vold Vehicle
 	var vnew Vehicle	
 	err := json.Unmarshal([]byte(vehiclebody), &vnew)							// Convert the JSON defined above into a vehicle object for go
 
@@ -309,6 +306,7 @@ func (t *SimpleChaincode) Update_vehicle_details(stub shim.ChaincodeStubInterfac
 			_, err  = t.save_changes(stub, vnew)
 																		if err != nil { fmt.Printf("CREATE_VEHICLE: Error saving changes: %s", err); return nil, errors.New("Error saving changes") }
 		 }
+		 */
 
 	return nil, nil
 
@@ -447,7 +445,7 @@ func (t *SimpleChaincode) get_all_vehicles(stub shim.ChaincodeStubInterface) ([]
 
 		if err != nil {return nil, errors.New("Failed to retrieve V5C")}
 
-		temp, err = t.get_all_vehicle_details(stub, v, caller, caller_affiliation)
+		temp, err = t.get_all_vehicle_details(stub, v)
 		
 		if err == nil {
 
