@@ -313,7 +313,8 @@ func (t *SimpleChaincode) Update_vehicle_details(stub shim.ChaincodeStubInterfac
 }
 
 func (t *SimpleChaincode) Transfer_vehicle_Ownership(stub shim.ChaincodeStubInterface,  vehiclebody string) ([]byte, error) {
-	var vold Vehicle
+	
+/*	var vold Vehicle
 	var vnew Vehicle	
 	fmt.Println(vehiclebody)
 	err := json.Unmarshal([]byte(vehiclebody), &vnew)							// Convert the JSON defined above into a vehicle object for go
@@ -327,6 +328,7 @@ func (t *SimpleChaincode) Transfer_vehicle_Ownership(stub shim.ChaincodeStubInte
 			_, err  = t.save_changes(stub, vnew)
 																		if err != nil { fmt.Printf("CREATE_VEHICLE: Error saving changes: %s", err); return nil, errors.New("Error saving changes") }
 		 }
+		 */
 
 	return nil, nil
 
