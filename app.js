@@ -436,6 +436,7 @@ if (process.env.VCAP_SERVICES) { // We are running in bluemix
         console.log('\n[!] No certificate is available. Will fail to connect to fabric');
     }
     startup.connectToPeers(chain, credentials.peers, pem);
+//startup.connectToPeers(chain, credentials.peers1, pem);
     startup.connectToCA(chain, credentials.ca, pem);
     //startup.connectToEventHub(chain, credentials.peers[0], pem);
 
@@ -450,6 +451,7 @@ if (process.env.VCAP_SERVICES) { // We are running in bluemix
     webAppAdminPassword = configFile.config.bluemix_registrar_password;
 
     startup.connectToPeers(chain, credentials.peers, pem);
+//startup.connectToPeers(chain, credentials.peers1, pem);
     startup.connectToCA(chain, credentials.ca, pem);
     //startup.connectToEventHub(chain, credentials.peers[0], pem);
 

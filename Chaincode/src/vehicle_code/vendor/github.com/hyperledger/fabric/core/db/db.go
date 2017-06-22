@@ -149,6 +149,7 @@ func getDBPath() string {
 // Open open underlying rocksdb
 func (openchainDB *OpenchainDB) open() {
 	dbPath := getDBPath()
+       dbLogger.Infof("The DB Path is  %s", dbPath)
 	missing, err := dirMissingOrEmpty(dbPath)
 	if err != nil {
 		panic(fmt.Sprintf("Error while trying to open DB: %s", err))
@@ -251,6 +252,8 @@ func (openchainDB *OpenchainDB) DeleteState() error {
 // Get returns the valud for the given column family and key
 func (openchainDB *OpenchainDB) Get(cfHandler *gorocksdb.ColumnFamilyHandle, key []byte) ([]byte, error) {
 	opt := gorocksdb.NewDefaultReadOptions()
+dbLogger.Infof("Inside Read DB State")
+
 	defer opt.Destroy()
 	slice, err := openchainDB.DB.GetCF(opt, cfHandler, key)
 	if err != nil {
@@ -269,6 +272,7 @@ func (openchainDB *OpenchainDB) Get(cfHandler *gorocksdb.ColumnFamilyHandle, key
 func (openchainDB *OpenchainDB) Put(cfHandler *gorocksdb.ColumnFamilyHandle, key []byte, value []byte) error {
 	opt := gorocksdb.NewDefaultWriteOptions()
 	defer opt.Destroy()
+dbLogger.Infof("Inside Put DB State")
 	err := openchainDB.DB.PutCF(opt, cfHandler, key, value)
 	if err != nil {
 		dbLogger.Errorf("Error while trying to write key: %s", key)
@@ -321,6 +325,8 @@ func (openchainDB *OpenchainDB) getSnapshotIterator(snapshot *gorocksdb.Snapshot
 
 func dirMissingOrEmpty(path string) (bool, error) {
 	dirExists, err := dirExists(path)
+dbLogger.Infof("Inside dir Missingor exists %s ",dirExists)
+
 	if err != nil {
 		return false, err
 	}
