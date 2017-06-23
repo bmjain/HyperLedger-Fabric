@@ -610,6 +610,7 @@ func (handler *Handler) handleGetState(msg *pb.ChaincodeMessage) {
 		}()
 
 		key := string(msg.Payload)
+		chaincodeLogger.Debugf("The key is  %s", key)
 		ledgerObj, ledgerErr := ledger.GetLedger()
 		if ledgerErr != nil {
 			// Send error msg back to chaincode. GetState will not trigger event
