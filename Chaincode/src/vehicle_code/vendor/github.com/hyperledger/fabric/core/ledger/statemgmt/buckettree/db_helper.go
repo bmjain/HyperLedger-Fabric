@@ -17,15 +17,14 @@ limitations under the License.
 package buckettree
 
 import (
-	"fmt"
 	"github.com/hyperledger/fabric/core/db"
 	"github.com/hyperledger/fabric/core/ledger/statemgmt"
 )
 
 func fetchDataNodeFromDB(dataKey *dataKey) (*dataNode, error) {
-	fmt.Println("Inside FetchNodeFromDB")
+	logger.Debugf("Inside FetchNodeFromDB")
 	openchainDB := db.GetDBHandle()
-	fmt.Println("The value in bytes is [%v] ", dataKey.getEncodedBytes())
+	logger.Debugf("The value in bytes is [%v] ", dataKey.getEncodedBytes())
 	nodeBytes, err := openchainDB.GetFromStateCF(dataKey.getEncodedBytes())
 	if err != nil {
 		return nil, err
@@ -43,7 +42,7 @@ func fetchDataNodeFromDB(dataKey *dataKey) (*dataNode, error) {
 }
 
 func fetchBucketNodeFromDB(bucketKey *bucketKey) (*bucketNode, error) {
-	fmt.Println("Inside FetchBucketNodeFromDB")
+	logger.Debugf("Inside FetchBucketNodeFromDB")
 	openchainDB := db.GetDBHandle()
 	nodeBytes, err := openchainDB.GetFromStateCF(bucketKey.getEncodedBytes())
 	if err != nil {
