@@ -29,13 +29,13 @@ type dataKey struct {
 }
 
 func newDataKey(chaincodeID string, key string) *dataKey {
-	logger.Debugf("Enter - newDataKey. chaincodeID=[%s], key=[%s]", chaincodeID, key)
+	logger.Debugf("Entering - newDataKey. chaincodeID=[%s], key=[%s]", chaincodeID, key)
 	compositeKey := statemgmt.ConstructCompositeKey(chaincodeID, key)
 	bucketHash := conf.computeBucketHash(compositeKey)
 	// Adding one because - we start bucket-numbers 1 onwards
 	bucketNumber := int(bucketHash)%conf.getNumBucketsAtLowestLevel() + 1
 	dataKey := &dataKey{newBucketKeyAtLowestLevel(bucketNumber), compositeKey}
-	logger.Debugf("Exit - newDataKey=[%s]", dataKey)
+	logger.Debugf("Exiting - newDataKey=[%s]", dataKey)
 	return dataKey
 }
 
