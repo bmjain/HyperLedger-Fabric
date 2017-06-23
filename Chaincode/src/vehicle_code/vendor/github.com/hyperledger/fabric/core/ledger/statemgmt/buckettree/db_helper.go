@@ -22,7 +22,9 @@ import (
 )
 
 func fetchDataNodeFromDB(dataKey *dataKey) (*dataNode, error) {
+	logger.Debug("Inside FetchNodeFromDB")
 	openchainDB := db.GetDBHandle()
+	logger.Debug("The value in bytes is [%v] ", dataKey.getEncodedBytes())
 	nodeBytes, err := openchainDB.GetFromStateCF(dataKey.getEncodedBytes())
 	if err != nil {
 		return nil, err
