@@ -592,9 +592,11 @@ func (handler *Handler) handleGetState(msg *pb.ChaincodeMessage) {
 	// The defer followed by triggering a go routine dance is needed to ensure that the previous state transition
 	// is completed before the next one is triggered. The previous state transition is deemed complete only when
 	// the afterGetState function is exited. Interesting bug fix!!
+	chaincodeLogger.Debugf("Inside HandleGetState")
 	go func() {
 		// Check if this is the unique state request from this chaincode txid
 		uniqueReq := handler.createTXIDEntry(msg.Txid)
+		chaincodeLogger.Debugf("inside go func")
 		if !uniqueReq {
 			// Drop this request
 			chaincodeLogger.Error("Another state request pending for this Txid. Cannot process.")
@@ -604,6 +606,7 @@ func (handler *Handler) handleGetState(msg *pb.ChaincodeMessage) {
 		var serialSendMsg *pb.ChaincodeMessage
 
 		defer func() {
+			chaincodeLogger.Debugf("Inside defer func")
 			handler.deleteTXIDEntry(msg.Txid)
 			chaincodeLogger.Debugf("[%s]handleGetState serial send %s", shorttxid(serialSendMsg.Txid), serialSendMsg.Type)
 			handler.serialSend(serialSendMsg)
@@ -626,6 +629,7 @@ func (handler *Handler) handleGetState(msg *pb.ChaincodeMessage) {
 
 		readCommittedState := !handler.getIsTransaction(msg.Txid)
 		res, err := ledgerObj.GetState(chaincodeID, key, readCommittedState)
+		chaincodeLogger.Debugf("The key is  %s", key)
 		if err != nil {
 			// Send error msg back to chaincode. GetState will not trigger event
 			payload := []byte(err.Error())
